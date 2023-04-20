@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-21k79ob&3ss!42+$y82h%_ud$$e(xw@_wx#3q8!my*2s+&0c!l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'theawesomestore.pages.dev']
 
 
 # Application definition

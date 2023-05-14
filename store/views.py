@@ -19,8 +19,11 @@ def about(request):
 <<<<<<< HEAD
     return render(request, "store/about.html")
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     return render(request, "store/about.html")
+=======
+>>>>>>> parent of 8879d95 (cwh-homepagelist)
 =======
 >>>>>>> parent of 8879d95 (cwh-homepagelist)
 
@@ -57,6 +60,9 @@ def about(request):
 #     return render(request, "store/index.html")
 #
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 8879d95 (cwh-homepagelist)
+=======
 >>>>>>> parent of 8879d95 (cwh-homepagelist)
 =======
 >>>>>>> parent of 8879d95 (cwh-homepagelist)

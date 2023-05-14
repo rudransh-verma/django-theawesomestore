@@ -1,0 +1,75 @@
+{% extends 'store/basic.html' %}
+{% block title %} TheAwesomeStore - Home {% endblock %}
+{% block css %}
+
+        @media screen and (min-device-width: 0px) and (max-device-width: 800px) {
+              .carousel-slider{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+              }
+            .card{
+                margin: 5%;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            }
+            }
+   @media screen and (min-device-width: 801px) and (max-device-width: 7800px) {
+       .carousel-slider {
+           display: flex;
+           width: 100%;
+           justify-content: center;
+           flex-direction: row;
+           margin-top: 5%;
+           margin-left: 2%;
+           margin-right: 2%;
+           gap: 2%;
+       }
+       .card{
+           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+       }
+   }
+{% endblock %}
+
+
+{% block body %}
+    <div class="carousel-slider" >
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ABC Company Headphones</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+
+
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ABC Company Headphones</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+
+
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ABC Company Headphones</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock %}
+
+{#  <p>#}
+{#      {{ prodname }}#}
+{#  </p>#}
+{##}

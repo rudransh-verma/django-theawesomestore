@@ -18,8 +18,11 @@ def index(request):
 def about(request):
 <<<<<<< HEAD
     return render(request, "store/about.html")
+<<<<<<< HEAD
 =======
     return render(request, "store/about.html")
+=======
+>>>>>>> parent of 8879d95 (cwh-homepagelist)
 
 #
 # def contact(request):
@@ -53,4 +56,7 @@ def about(request):
 # def checkout(request):
 #     return render(request, "store/index.html")
 #
+<<<<<<< HEAD
+>>>>>>> parent of 8879d95 (cwh-homepagelist)
+=======
 >>>>>>> parent of 8879d95 (cwh-homepagelist)

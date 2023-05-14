@@ -1,42 +1,40 @@
 {% extends 'store/basic.html' %}
 {% block title %} TheAwesomeStore - Home {% endblock %}
 {% block css %}
-          .col-md-3
-          {
-          display: inline-block;
-          margin-left:-4px;
-          }
 
-          .carousel-indicators .active {
-          background-color: blue;
+        @media screen and (min-device-width: 0px) and (max-device-width: 800px) {
+              .carousel-slider{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+              }
+            .card{
+                margin: 5%;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
             }
-
-          .col-md-3 img{
-
-          width: 255px;
-          height: 355px;
-          }
-
-          body .carousel-indicator li{
-          background-color: blue;
-          }
-
-          body .carousel-indicators{
-          bottom: 0;
-          }
-
-          body .carousel-control-prev-icon,
-          body .carousel-control-next-icon{
-          background-color: blue;
-          }
-           body .no-padding{
-           padding-left: 0,
-           padding-right: 0;
-           }
- {% endblock %}
+            }
+   @media screen and (min-device-width: 801px) and (max-device-width: 7800px) {
+       .carousel-slider {
+           display: flex;
+           width: 100%;
+           justify-content: center;
+           flex-direction: row;
+           margin-top: 5%;
+           margin-left: 2%;
+           margin-right: 2%;
+           gap: 2%;
+       }
+       .card{
+           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+       }
+   }
+{% endblock %}
 
 
 {% block body %}
+<<<<<<< HEAD
 <!--Slideshow starts here -->
     <div class="container">
 <div id="demo" class="carousel slide my-3" data-ride="carousel">
@@ -59,59 +57,42 @@
             <h5 class="card-title">{{product.0.product_name}}</h5>
             <p class="card-text">{{product.0.desc}}</p>
             <a href="#" class="btn btn-primary">Add to Cart</a>
+=======
+    <div class="carousel-slider" >
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ABC Company Headphones</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+>>>>>>> parent of 8879d95 (cwh-homepagelist)
         </div>
-      </div>
-   </div>
 
 
-    {% for i in product|slice:"1:"%}
-    <div class="col-xs-3 col-sm-3 col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img src='/media/{{i.image}}' class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{i.product_name}}</h5>
-          <p class="card-text">{{i.desc}}</p>
-          <a href="#" class="btn btn-primary">Add To Cart</a>
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ABC Company Headphones</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
         </div>
-      </div>
+
+
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ABC Company Headphones</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+
+
+
     </div>
-    {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
-  </div><div class="carousel-item">
-    {% endif %}
-
-    {% endfor %}
-</div>
-
-
-
-</div>
-</div>
-<!-- left and right controls for the slide -->
-<a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-</a>
-<a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-</a>
-
-
-
-</div>
 {% endblock %}
-
-{% block lib %}
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-{% endblock %}
-
-
-
-
-
-
-
-
 
 {#  <p>#}
 {#      {{ prodname }}#}

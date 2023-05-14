@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.conf.urls.static import static
 from django.http import HttpResponse
+from math import ceil
 
 from store.models import Product
 # Create your views here.

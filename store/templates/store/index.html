@@ -1,8 +1,14 @@
 {% extends 'store/basic.html' %}
 {% block title %} TheAwesomeStore - Home {% endblock %}
 {% block css %}
+body{
+  height:2000px;
+}
+h3{
+  margin:45px;
+}
 .container{
-    margin-top:100px;
+    margin-top:10px;
 }
 .col-md-3{
     display:inline-block;
@@ -11,7 +17,6 @@
 }
 .card{
     height:450px;
-    {% comment %} margin:10%; {% endcomment %}
     width:250px;
 }
 .card-img-top{
@@ -27,23 +32,42 @@
             padding:0;
             filter: invert(100%);
           }
+          body .carousel-control-prev,
+          body .carousel-control-next{
+            top:auto;
+            bottom:auto;
+          }
           body .carousel-control-prev-icon,
           body .carousel-control-next-icon{
+            top:auto;
+            bottom:auto;
             margin:0;
             padding:0;
             filter: invert(100%);
+          }
+          .descsm{
+            font-size:10px; ttl
+          }
+          .ttl{
+            font-size:24px;
           }
  {% endblock %}
 
 {% block body %}
 {% load static %}
 <div class="container">
-<div id="demo" class="carousel slide my-3" data-ride="carousel">
+
+  <!-- Slideshow starts here -->
+  {% for product, range, nSlides in allProds %}
+
+  <h3>{{product.0.category}}</h3>
+
+<div id="demo{{forloop.counter}}" class="carousel slide my-3" data-ride="carousel">
     <ul class="carousel-indicators">
-      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
 
        {% for i in range %}
-      <li data-target="#demo" data-slide-to="{{i}}" ></li>
+      <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}" ></li>
       {% endfor %}
     </ul>
 
@@ -55,8 +79,8 @@
           <div class="card">
             <img src='/media/{{product.0.image}}' class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{product.0.product_name}}</h5>
-                <p class="card-text">{{product.0.product_description}}</p>
+                <h5 class="card-title ttl">{{product.0.product_name}}</h5>
+                <p class="card-text descsm">{{product.0.product_description}}</p>
                 <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
@@ -68,8 +92,8 @@
           <div class="card">
             <img src='/media/{{i.image}}' class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">{{i.product_name}}</h5>
-              <p class="card-text">{{i.product_description}}</p>
+              <h5 class="card-title ttl">{{i.product_name}}</h5>
+              <p class="card-text descsm">{{i.product_description}}</p>
               <a href="#" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
@@ -86,14 +110,32 @@
 </div>
 </div>
     <!-- left and right controls for the slide -->
-    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </a>
-    <a class="carousel-control-next" href="#demo" data-slide="next">
+    <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
         <span class="carousel-control-next-icon"></span>
     </a>
 
+   
+
+    {% endfor %}
+  </div>
+
+  {% block js %}
+<script>
+
+  if(localStorage.getItem('cart') == null) {
+    var cart = {};
+  }
+
+  else
+  {
+    cart = JSON.parse(localStorage.getItem('cart'));
+  }
+</script>
+
+  {% endblock %}
 
  {% endblock %}
 
-</div>

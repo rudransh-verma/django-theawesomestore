@@ -1,75 +1,99 @@
 {% extends 'store/basic.html' %}
 {% block title %} TheAwesomeStore - Home {% endblock %}
 {% block css %}
+.container{
+    margin-top:100px;
+}
+.col-md-3{
+    display:inline-block;
+    margin-left:-4px;
 
-        @media screen and (min-device-width: 0px) and (max-device-width: 800px) {
-              .carousel-slider{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-              }
-            .card{
-                margin: 5%;
-                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.card{
+    height:450px;
+    {% comment %} margin:10%; {% endcomment %}
+    width:250px;
+}
+.card-img-top{
+    height:300px;
+}
+          .carousel-indicators .active {
+            margin:0;
+            padding:0;
+            filter: invert(100%);
             }
-            }
-   @media screen and (min-device-width: 801px) and (max-device-width: 7800px) {
-       .carousel-slider {
-           display: flex;
-           width: 100%;
-           justify-content: center;
-           flex-direction: row;
-           margin-top: 5%;
-           margin-left: 2%;
-           margin-right: 2%;
-           gap: 2%;
-       }
-       .card{
-           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-       }
-   }
-{% endblock %}
-
+          body .carousel-indicator li{
+            margin:0;
+            padding:0;
+            filter: invert(100%);
+          }
+          body .carousel-control-prev-icon,
+          body .carousel-control-next-icon{
+            margin:0;
+            padding:0;
+            filter: invert(100%);
+          }
+ {% endblock %}
 
 {% block body %}
-    <div class="carousel-slider" >
-          <div class="card" style="width: 18rem;">
-            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+{% load static %}
+<div class="container">
+<div id="demo" class="carousel slide my-3" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+
+       {% for i in range %}
+      <li data-target="#demo" data-slide-to="{{i}}" ></li>
+      {% endfor %}
+    </ul>
+
+    <!--Slideshow starts here -->
+    <div class="container carousel-inner no-padding">
+
+      <div class="carousel-item active">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <div class="card">
+            <img src='/media/{{product.0.image}}' class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">ABC Company Headphones</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <h5 class="card-title">{{product.0.product_name}}</h5>
+                <p class="card-text">{{product.0.product_description}}</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
-        </div>
+          </div>
+       </div>
 
 
-          <div class="card" style="width: 18rem;">
-            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+        {% for i in product|slice:"1:"%}
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <div class="card">
+            <img src='/media/{{i.image}}' class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">ABC Company Headphones</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+              <h5 class="card-title">{{i.product_name}}</h5>
+              <p class="card-text">{{i.product_description}}</p>
+              <a href="#" class="btn btn-primary">Add To Cart</a>
             </div>
+          </div>
         </div>
+        {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+      </div><div class="carousel-item">
+        {% endif %}
 
-
-          <div class="card" style="width: 18rem;">
-            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">ABC Company Headphones</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ex expedita impedit ipsum placeat rem. Aliquam delectus dolorum laudantium neque nesciunt sapiente similique, ut voluptatem.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
-            </div>
-        </div>
-
-
-
+        {% endfor %}
     </div>
-{% endblock %}
 
-{#  <p>#}
-{#      {{ prodname }}#}
-{#  </p>#}
-{##}
+
+
+</div>
+</div>
+    <!-- left and right controls for the slide -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+
+ {% endblock %}
+
+</div>

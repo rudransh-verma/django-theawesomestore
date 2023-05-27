@@ -81,10 +81,11 @@ h3{
             <div class="card-body">
                 <h5 class="card-title ttl">{{product.0.product_name}}</h5>
                 <p class="card-text descsm">{{product.0.product_description}}</p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <a href="#" id="" onclick = "cartClick({{ product.0.id }})" class="btn btn-primary btnclickcart">Add to Cart</a>
             </div>
           </div>
        </div>
+
 
 
         {% for i in product|slice:"1:"%}
@@ -94,7 +95,7 @@ h3{
             <div class="card-body">
               <h5 class="card-title ttl">{{i.product_name}}</h5>
               <p class="card-text descsm">{{i.product_description}}</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" id="" onclick = "cartClick({{ i.id }})" class="btn btn-primary btnclickcart">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -125,14 +126,18 @@ h3{
   {% block js %}
 <script>
 
-  if(localStorage.getItem('cart') == null) {
-    var cart = {};
+
+    
+
+
+  cartBtn = document.getElementsByClassName("btnclickcart");
+
+  function cartClick(id){
+      console.log(id)
+      //console.log(id)
   }
 
-  else
-  {
-    cart = JSON.parse(localStorage.getItem('cart'));
-  }
+
 </script>
 
   {% endblock %}
